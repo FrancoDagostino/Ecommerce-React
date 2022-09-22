@@ -1,0 +1,9 @@
+import React from 'react'
+
+export const ItemListContainer = ({mensaje}) => {
+  return (
+    <>
+        <h1>{mensaje}</h1>
+    </>
+  )
+}

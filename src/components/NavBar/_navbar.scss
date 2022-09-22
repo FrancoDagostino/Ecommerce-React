@@ -1,0 +1,26 @@
+.navbar{
+    display: none;
+    width: 400px;
+
+    &__items{
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__link{
+        text-decoration: none;
+        color:darkblue;
+        display: block;
+        height: 112px;
+        padding-top: 48px;
+        &:hover{
+            border-bottom: 4px solid orange;
+            cursor: pointer;
+        }
+    }
+    
+    @media (min-width:1115px){
+        display: block;
+    }
+
+}
