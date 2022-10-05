@@ -1,9 +1,12 @@
 import React from 'react'
+import icon from '../assets/icon-cart.svg'
 
-export const ItemListContainer = ({mensaje}) => {
+export const ItemListContainer = () => {
   return (
     <>
-        <h1>{mensaje}</h1>
-    </>
+    <div className='header__cart--notification'>3</div>
+        
+        <img src={icon} className='header__icon' alt="" />
+        </>
   )
 }

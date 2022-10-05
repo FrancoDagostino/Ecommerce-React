@@ -15,7 +15,9 @@
         padding-top: 48px;
         &:hover{
             border-bottom: 4px solid orange;
-            cursor: pointer;
+        }
+        a{
+            text-decoration: none;
         }
     }
     
