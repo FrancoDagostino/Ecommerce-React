@@ -14,20 +14,27 @@ export const ItemDetailContainer = () => {
         const productFilter = producto.find(p => p._id === id)
         setProduct(productFilter);
         setIsLoading(false);
+        console.log(producto)
     }
 
     useEffect(() => {
         consumirApi();
-    })
+    },[id])
     
   return (
     <div>
+        <h2>DETALLES DEL PRODUCTO</h2>
         {
             isLoading 
                 ? <h1>...Cargando</h1> 
-                :         <div>
-                <h2>DETALLES DEL PRODUCTO</h2>
-                <Item {...product}/>
+                :<div style={{display:'flex',justifyContent:'space-evenly'}}>
+                    
+                <div >
+                    <Item {...product}/>
+                </div>
+                <div>
+                    <p>ACA VA EL DETALLE DEL PRODUCTO.. PROXIMO A IMPLEMENTAR</p>
+                </div>
             </div>
         }
     </div>
