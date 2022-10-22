@@ -14,7 +14,7 @@ export const NavBar = () => {
                 <li className="navbar__link"><NavLink to="/">Inicio</NavLink></li>
                 <li className="navbar__link"><NavLink to="/category/placa_madre">Mother</NavLink></li>
                 <li className="navbar__link"><NavLink to="/category/memoria_ram">RAM</NavLink></li>
-                <li className="navbar__link"><NavLink to="/category/tarjeta_grafica">Tarjeta Gráfica</NavLink></li>
+                <li className="navbar__link"><NavLink to="/category/Video Card">Tarjeta Gráfica</NavLink></li>
             </ul>
 
         </nav>
