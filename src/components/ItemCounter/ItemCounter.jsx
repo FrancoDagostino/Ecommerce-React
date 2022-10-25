@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import  './ItemCounter.scss'
 export const ItemCounter = ({onAddQuantity,initialValue=1,stock}) => {
 
     const [counter, setCounter] = useState(initialValue);
@@ -16,13 +16,17 @@ export const ItemCounter = ({onAddQuantity,initialValue=1,stock}) => {
 
 
   return (
-    <div>
+    <>
+    <div className="itemCounterContainer">
+
         <button onClick={handleAdd}>+</button>
-        <h4>{counter}</h4>
+
+        <input type="text" value={counter} disabled="false" />
         <button onClick={handleDecrease}>-</button>
-        <div>
-            <button onClick={() => onAddQuantity(counter)}>Agregar al carrito</button>
-        </div>
     </div>
+        <div>
+            <button className='btnSucess' onClick={() => onAddQuantity(counter)}>Agregar al carrito</button>
+        </div>
+    </>
   )
 }
