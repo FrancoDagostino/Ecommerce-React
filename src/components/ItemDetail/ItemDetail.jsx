@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import { ItemCounter } from "../ItemCounter/ItemCounter";
 
-export const ItemDetail = ({id,img,price,name}) => {
+export const ItemDetail = ({id,img,price,name,stock}) => {
 
     const [quantityToAdd, setQuantityToAdd] = useState(0)
     const {onAddProduct,isProductExist} = useContext(CartContext);
@@ -38,7 +38,7 @@ export const ItemDetail = ({id,img,price,name}) => {
                     <p>ACA VA EL DETALLE DEL PRODUCTO.. PROXIMO A IMPLEMENTAR</p>
                     {
                         quantityToAdd === 0 
-                        ?<ItemCounter onAddQuantity={onAddQuantity} initialValue={quantityExist}/>
+                        ?<ItemCounter onAddQuantity={onAddQuantity} initialValue={quantityExist} stock={stock}/>
                         :<Link to="/cart">Finalizar Compra</Link>
                     }
                 </div>

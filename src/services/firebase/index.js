@@ -6,7 +6,7 @@ const firebaseConfig = {
   projectId: "backendreact-fa9c0",
   storageBucket: "backendreact-fa9c0.appspot.com",
   messagingSenderId: "775717253981",
-  appId: "1:775717253981:web:5b4f34db3757a1de4daeb4"
+  appId: "1:775717253981:web:d607e73e2921927e4daeb4"
 };
 
 // Initialize Firebase

@@ -1,15 +1,16 @@
 import { useState } from 'react'
 
-export const ItemCounter = ({onAddQuantity,initialValue=0}) => {
+export const ItemCounter = ({onAddQuantity,initialValue=1,stock}) => {
 
     const [counter, setCounter] = useState(initialValue);
 
     const handleAdd = ()=>{
+        if(counter >= stock) return
         setCounter(counter + 1)
     }
 
     const handleDecrease = ()=>{
-        if(counter <= 0) return;
+        if(counter <= 1) return;
         setCounter(counter - 1)
     }
 
