@@ -21,6 +21,7 @@ export const saveOrder = async(cart,orderObj,clearCart)=>{
         const prodQuantity = productAddedToCart?.quantity
 
         if(stockDb >= prodQuantity){
+            console.log('llego')
             batch.update(doc.ref,{stock: stockDb - prodQuantity});
         }else{
             outOfStock.push({id: doc.id, ...dataDoc});
@@ -32,7 +33,7 @@ export const saveOrder = async(cart,orderObj,clearCart)=>{
             const orderRef = collection(db,'orders');
 
             const orderAdded = await addDoc(orderRef,orderObj);
-            alert(`La orden fue creada ${JSON.stringify(orderAdded)}`);
+            batch.commit();
             clearCart();
             return true
         }else{

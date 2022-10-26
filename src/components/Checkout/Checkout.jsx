@@ -2,6 +2,7 @@ import React from 'react'
 import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import { saveOrder } from '../../helpers/getFetch';
+import { alertConfirm } from '../../helpers/sweetAlert';
 import { Form } from '../Form/Form';
 
 
@@ -17,7 +18,8 @@ export const Checkout = () => {
         total: totalCart
         }
         const resp = await saveOrder(cart,orderObj,clearCart)
-        console.log(resp)
+        if(resp) alertConfirm('La compra fue realizada con exitó');
+  
     }
 
     return(

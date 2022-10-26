@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
+import { alertConfirm } from "../../helpers/sweetAlert";
 import { ItemCounter } from "../ItemCounter/ItemCounter";
 
 export const ItemDetail = ({id,img,price,name,stock}) => {
@@ -16,7 +17,9 @@ export const ItemDetail = ({id,img,price,name,stock}) => {
 
         const productToAdd = {id,price,name,quantity};
         
-        onAddProduct(productToAdd,id)
+        onAddProduct(productToAdd,id);
+
+        alertConfirm('El producto fue agregado al carrito');
     }
 
 
