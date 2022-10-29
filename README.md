@@ -62,5 +62,5 @@
 5 - Ejecutar el proyecto
 
 ```sh
- npm starrt
+ npm start
 ```
