@@ -1,5 +1,5 @@
 
-import { addDoc,collection,getDocs,query,where,documentId, writeBatch } from 'firebase/firestore'
+import { addDoc,collection,getDocs,query,where,documentId, writeBatch, getDoc,doc } from 'firebase/firestore'
 import { alertWarning } from '../../helpers/sweetAlert'
 import { db } from '../../services/firebase'
 
@@ -64,4 +64,21 @@ export const saveOrder = async(cart,orderObj,clearCart)=>{
     } catch (error) {
   
     }   
+}
+
+
+export const getProduct = (productId)=>{
+    return new Promise((resolve,reject)=>{
+        const docRef = doc(db,'products',productId)
+  
+        getDoc(docRef).then(doc => {
+          const data = doc.data()
+          const productAdapted = {
+              id: doc.id, ...data
+          }
+          resolve(productAdapted)
+        }).catch(error =>{
+            reject(alertWarning('No se puedo obtener el producto'))
+        })
+    })
 }
