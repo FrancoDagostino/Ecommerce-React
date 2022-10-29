@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
-import { alertConfirm } from '../../helpers/sweetAlert';
+import { alertConfirm, modalError } from '../../helpers/sweetAlert';
 import { saveOrder } from '../../services/firebase/firestore';
 import { Form } from '../Form/Form';
 
@@ -19,9 +19,11 @@ export const Checkout = () => {
         }
         setIsLoading(true)
         const resp = await saveOrder(cart,orderObj,clearCart)
-        if(resp){
+        if(resp === true){
           alertConfirm('La compra fue realizada con exitó');
           setIsLoading(false)
+        }else{
+          modalError(resp)
         }
     }
 

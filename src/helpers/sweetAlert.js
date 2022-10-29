@@ -1,5 +1,5 @@
 import Swal from 'sweetalert2'
-
+import {Link} from 'react-router-dom';
 export const alertConfirm = (msg='')=>{
     const Toast = Swal.mixin({
         toast: true,
@@ -39,4 +39,17 @@ export const alertWarning = (msg = '')=>{
         title: 'Cuidado',
         text:msg
       })
+}
+
+
+export const modalError = (outOfStock)=>{
+  let outProductStock = ''
+  outOfStock.forEach(producto => {
+    outProductStock += producto.name + ','
+  })
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: `Los siguientes productos no tienen stock: ${outProductStock} `,
+  })
 }

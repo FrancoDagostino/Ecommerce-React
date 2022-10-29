@@ -56,7 +56,7 @@ export const saveOrder = async(cart,orderObj,clearCart)=>{
             const orderAdded = await addDoc(orderRef,orderObj);
             batch.commit();
             clearCart();
-            return orderAdded
+            return true
         }else{
             return outOfStock
         }
