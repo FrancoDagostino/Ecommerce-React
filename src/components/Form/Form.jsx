@@ -26,7 +26,7 @@ export const Form = ({createOrder}) => {
     const handleSubmit = (event)=>{
         event.preventDefault();
 
-        if(name == '' || email == '' || phone == ''){
+        if(name === '' || email === '' || phone === ''){
             alertWarning('Porfavor llenar todos los campos');
             return;
         }

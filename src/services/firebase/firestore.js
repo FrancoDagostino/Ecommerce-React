@@ -1,6 +1,28 @@
 
-import {addDoc,collection,getDocs,query,where,documentId, writeBatch} from 'firebase/firestore'
-import { db } from "../services/firebase";
+import { addDoc,collection,getDocs,query,where,documentId, writeBatch } from 'firebase/firestore'
+import { alertWarning } from '../../helpers/sweetAlert'
+import { db } from '../../services/firebase'
+
+export const getProducts = (categoryId) =>{
+    return new Promise((resolve,reject)=>{
+        const collectionRef = categoryId
+        ? query(collection(db,'products'),where('category','==',categoryId))
+        : collection(db,'products')
+  
+      getDocs(collectionRef).then(response => {
+        const productAdapted = response.docs.map(doc =>{
+          const data = doc.data();
+          return{
+            id: doc.id, ...data
+          }
+        })
+        resolve(productAdapted)
+      })
+      .catch(error =>{
+        reject(alertWarning('No se pueden obtener los productos'))
+      })
+    })
+}
 
 
 export const saveOrder = async(cart,orderObj,clearCart)=>{
@@ -21,7 +43,6 @@ export const saveOrder = async(cart,orderObj,clearCart)=>{
         const prodQuantity = productAddedToCart?.quantity
 
         if(stockDb >= prodQuantity){
-            console.log('llego')
             batch.update(doc.ref,{stock: stockDb - prodQuantity});
         }else{
             outOfStock.push({id: doc.id, ...dataDoc});
@@ -35,7 +56,7 @@ export const saveOrder = async(cart,orderObj,clearCart)=>{
             const orderAdded = await addDoc(orderRef,orderObj);
             batch.commit();
             clearCart();
-            return true
+            return orderAdded
         }else{
             return outOfStock
         }

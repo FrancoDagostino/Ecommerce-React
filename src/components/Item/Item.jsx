@@ -1,14 +1,16 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './_Item.scss'
-export const Item = ({id,img,price,name}) => {
+export const Item = ({id,img,price,name,stock}) => {
   return (
     <>
 
         {
+            stock === 0 ? ''
+            :
             <div key={id}>
                     <div className="product">
-                            <img src={img} alt="" width="280px" height="280px" />
+                            <img src={img} alt={name} width="280px" height="280px" />
                             <div className="product__info">
                                 <span className="product__send">Envío con normalidad</span>
                                 <span className="product__price">$ {price}</span>

@@ -4,7 +4,7 @@ import { CartContext } from "../../context/CartContext";
 import { alertConfirm } from "../../helpers/sweetAlert";
 import { ItemCounter } from "../ItemCounter/ItemCounter";
 
-export const ItemDetail = ({id,img,price,name,stock}) => {
+export const ItemDetail = ({id,img,price,name,stock,description}) => {
 
     const [quantityToAdd, setQuantityToAdd] = useState(0)
     const {onAddProduct,isProductExist} = useContext(CartContext);
@@ -15,7 +15,7 @@ export const ItemDetail = ({id,img,price,name,stock}) => {
     const onAddQuantity = (quantity)=>{
         setQuantityToAdd(quantity);
 
-        const productToAdd = {id,price,name,quantity};
+        const productToAdd = {id,price,name,img,quantity};
         
         onAddProduct(productToAdd,id);
 
@@ -26,6 +26,8 @@ export const ItemDetail = ({id,img,price,name,stock}) => {
 
 
   return (
+    <div>
+
     <div style={{display:'flex',justifyContent:'space-evenly'}}>
                     
                     <div className="product">
@@ -38,7 +40,6 @@ export const ItemDetail = ({id,img,price,name,stock}) => {
                         </div>
                     </div>
                 <div>
-                    <p>ACA VA EL DETALLE DEL PRODUCTO.. PROXIMO A IMPLEMENTAR</p>
                     {
                         quantityToAdd === 0 
                         ?<ItemCounter onAddQuantity={onAddQuantity} initialValue={quantityExist} stock={stock}/>
@@ -46,5 +47,10 @@ export const ItemDetail = ({id,img,price,name,stock}) => {
                     }
                 </div>
             </div>
+            <div>
+
+                <p style={{gap:'50px',marginTop:'20px',textTransform:'capitalize',whiteSpace:'pre-wrap'}}>{description}</p>
+            </div>
+        </div>
   )
 }

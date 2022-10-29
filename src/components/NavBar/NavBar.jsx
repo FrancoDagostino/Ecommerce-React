@@ -12,9 +12,10 @@ export const NavBar = () => {
         <nav className='navbar'>
             <ul className='navbar__items'>
                 <li className="navbar__link"><NavLink to="/">Inicio</NavLink></li>
-                <li className="navbar__link"><NavLink to="/category/placa_madre">Mother</NavLink></li>
-                <li className="navbar__link"><NavLink to="/category/memoria_ram">RAM</NavLink></li>
+                <li className="navbar__link"><NavLink to="/category/mother">Mother</NavLink></li>
+                <li className="navbar__link"><NavLink to="/category/ram">RAM</NavLink></li>
                 <li className="navbar__link"><NavLink to="/category/Video Card">Tarjeta Gráfica</NavLink></li>
+                <li className="navbar__link"><NavLink to="/category/micro">Micros</NavLink></li>
             </ul>
 
         </nav>

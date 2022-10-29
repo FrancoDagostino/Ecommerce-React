@@ -26,7 +26,7 @@ export const CartItem = ({id,img,price,name,quantity}) => {
     <div style={{display:'flex',justifyContent:'space-around',margin:'50px 0 50px 0', backgroundColor:'#d9e1df', height:'50px',alignItems:'center',borderRadius:'20px'}}>
 
         <div>
-            <img src={img} alt={name}/>
+          <img src={img} alt={name} width="50px" height="50px" />
         </div>
         <div>
             <h4>{name}</h4>
